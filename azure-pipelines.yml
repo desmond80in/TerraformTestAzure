@@ -12,20 +12,20 @@ steps:
 - task: ms-devlabs.custom-terraform-tasks.custom-terraform-release-task.TerraformTaskV1@0
   displayName: 'Terraform : INIT'
   inputs:
-    backendServiceArm: 'Jonnychipz-TFSPN'
-    backendAzureRmResourceGroupName: 'jonnychipz-infra'
-    backendAzureRmStorageAccountName: jonnychipztstate
-    backendAzureRmContainerName: tstate
-    backendAzureRmKey: '77Q4LUB5o9wRdbPYDt+0kGZP+L8Sj9E/FNXg7lZBQS5z3mLod5cyan4wA19CR1SmlqIRUFQfhuQrPVaGzNhjGw=='
+    backendServiceArm: 'poc-infra-TFSPN'
+    backendAzureRmResourceGroupName: 'poc-infra'
+    backendAzureRmStorageAccountName: nmgpocinfra
+    backendAzureRmContainerName: tfstate
+    backendAzureRmKey: 'jOcGaiJLwtgk9uu7rjg3Mb6qILslrdqxs/+K4PkyJCN5d/FOha4TOAKB62M5gqZuDKNz1fIaL5RWGzdpqNMenw=='
 
 - task: ms-devlabs.custom-terraform-tasks.custom-terraform-release-task.TerraformTaskV1@0
   displayName: 'Terraform : PLAN'
   inputs:
     command: plan
-    environmentServiceNameAzureRM: 'Jonnychipz-TFSPN'
+    environmentServiceNameAzureRM: 'poc-infra-TFSPN'
 
 - task: ms-devlabs.custom-terraform-tasks.custom-terraform-release-task.TerraformTaskV1@0
   displayName: 'Terraform : VAL & APPLY'
   inputs:
     command: apply
-    environmentServiceNameAzureRM: 'Jonnychipz-TFSPN'
+    environmentServiceNameAzureRM: 'poc-infra-TFSPN'
